@@ -284,6 +284,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (details.schedule_details) {
       const days = details.schedule_details.days.join(", ");
 
+      if (!details.schedule_details.end_time) {
+        return details.schedule;
+      }
+
       // Convert 24h time format to 12h AM/PM format for display
       const formatTime = (time24) => {
         const [hours, minutes] = time24.split(":").map((num) => parseInt(num));
