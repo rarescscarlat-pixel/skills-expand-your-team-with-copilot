@@ -122,12 +122,12 @@ initial_activities = {
     },
     "Manga Maniacs": {
         "description": "Dive into bold heroes, unforgettable characters, and imaginative worlds—share your favorite manga and discover your next page-turner!",
-        "schedule": "Tuesdays at 7:00 PM",
+        "schedule": "Tuesdays at 5:00 PM",
         "schedule_details": {
             "days": ["Tuesday"],
-            "start_time": "19:00"
+            "start_time": "17:00"
         },
-        "max_participants": 15,
+        "max_participants": 25,
         "participants": []
     },
     "Debate Team": {
