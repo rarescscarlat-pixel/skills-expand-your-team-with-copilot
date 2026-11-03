@@ -626,6 +626,12 @@ footer {
   }
 }
 
+@media (max-width: 520px) {
+  header {
+    padding-top: 50px;
+  }
+}
+
 /* User controls in header */
 #user-controls {
   position: absolute;
