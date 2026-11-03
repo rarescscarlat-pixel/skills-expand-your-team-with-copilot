@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Authentication elements
   const loginButton = document.getElementById("login-button");
+  const themeToggle = document.getElementById("theme-toggle");
   const userInfo = document.getElementById("user-info");
   const displayName = document.getElementById("display-name");
   const logoutButton = document.getElementById("logout-button");
@@ -43,6 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Authentication state
   let currentUser = null;
+
+  function setTheme(isDark) {
+    document.body.classList.toggle("dark-mode", isDark);
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.innerHTML = isDark
+      ? '<span aria-hidden="true">☀️</span><span>Light mode</span>'
+      : '<span aria-hidden="true">🌙</span><span>Dark mode</span>';
+  }
 
   // Time range mappings for the dropdown
   const timeRanges = {
@@ -867,6 +876,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize app
   checkAuthentication();
+  setTheme(localStorage.getItem("theme") === "dark");
+  themeToggle.addEventListener("click", () => {
+    const isDark = !document.body.classList.contains("dark-mode");
+    setTheme(isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+
   initializeFilters();
   fetchActivities();
 });
