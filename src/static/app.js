@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Authentication elements
   const loginButton = document.getElementById("login-button");
   const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = themeToggle.querySelector("[aria-hidden='true']");
+  const themeLabel = themeToggle.querySelector("span:not([aria-hidden])");
   const userInfo = document.getElementById("user-info");
   const displayName = document.getElementById("display-name");
   const logoutButton = document.getElementById("logout-button");
@@ -48,9 +50,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function setTheme(isDark) {
     document.body.classList.toggle("dark-mode", isDark);
     themeToggle.setAttribute("aria-pressed", String(isDark));
-    themeToggle.innerHTML = isDark
-      ? '<span aria-hidden="true">☀️</span><span>Light mode</span>'
-      : '<span aria-hidden="true">🌙</span><span>Dark mode</span>';
+    themeIcon.textContent = isDark ? "☀️" : "🌙";
+    themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
   }
 
   // Time range mappings for the dropdown
